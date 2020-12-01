@@ -1,65 +1,85 @@
 <?php
+//
+//class Category
+//{
+//    public $name;
+//
+//
+//}
+//
+//class Post
+//{
+//    public $title;
+//    public $content;
+//    private $category;
+//
+//    public function setCategory(Category $category)
+//    {
+//        $this->category = $category;
+//    }
+//
+//    public function category()
+//    {
+//        return $this->category;
+//    }
+//
+//}
+//
+//
+//$php = new Category();
+//$php->name = 'PHP';
+//
+//$post01 = new Post;
+//$post01->title = 'PHP é legal';
+//$post01->content = '...';
+////$post01->category = $php;
+//
+//echo $post01->title;
+//echo '<hr>';
+//echo $post01->content;
+//echo '<hr>';
+//$post01->setCategory($php);
+//
+//echo $post01->category();
+////echo $post01->category->name;
+//echo '<hr>';
+//
 
 
-class ContaPerfis
+class Cart
 {
-    var $number;
-    var $name;
-    var $cpf;
+    private $itens = [];
 
-    public function setNumber(String $number)
+    public function add(Product $product)
     {
-        $this->number = $number;
+        array_push($this->itens, $product);
     }
 
-    /**
-     * @param mixed $name
-     */
-    public function setName($name)
+    public function all(): array
     {
-        $this->name = $name;
-    }
-
-    /**
-     * @param mixed $cpf
-     */
-    public function setCpf($cpf)
-    {
-        $this->cpf = $cpf;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getNumber(): String
-    {
-        return $this->number;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getName(): String
-    {
-        return $this->name;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCpf()
-    {
-        return $this->cpf;
-    }
-
-    public function getData(): String
-    {
-        return "Nome: {$this->name}, Número: {$this->number}, CPF: {$this->cpf}";
+        return $this->itens;
     }
 }
 
-$ales = new ContaPerfis;
-$ales->setNumber('123456');
-$ales->setName('Ales Nascimento');
-$ales->setCpf('078.653');
-echo $ales->getData();
+class Product
+{
+    public $name;
+}
+
+$p1 = new product;
+$p1->name = 'DVD';
+
+$p2 = new product;
+$p2->name = 'VAZO';
+
+$p3 = new product;
+$p3->name = 'ROUPA';
+
+$cart = new Cart();
+$cart->add($p1);
+$cart->add($p2);
+$cart->add($p3);
+$itens = $cart->all();
+foreach ($itens as $product) {
+    echo "Nome: {$product->name} <br>";
+}
