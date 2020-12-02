@@ -1,85 +1,67 @@
 <?php
-//
-//class Category
-//{
-//    public $name;
-//
-//
-//}
-//
-//class Post
-//{
-//    public $title;
-//    public $content;
-//    private $category;
-//
-//    public function setCategory(Category $category)
-//    {
-//        $this->category = $category;
-//    }
-//
-//    public function category()
-//    {
-//        return $this->category;
-//    }
-//
-//}
-//
-//
-//$php = new Category();
-//$php->name = 'PHP';
-//
-//$post01 = new Post;
-//$post01->title = 'PHP é legal';
-//$post01->content = '...';
-////$post01->category = $php;
-//
-//echo $post01->title;
-//echo '<hr>';
-//echo $post01->content;
-//echo '<hr>';
-//$post01->setCategory($php);
-//
-//echo $post01->category();
-////echo $post01->category->name;
-//echo '<hr>';
-//
 
-
-class Cart
+class MyClassDad
 {
-    private $itens = [];
 
-    public function add(Product $product)
+}
+
+class MyClass extends MyClassDad
+{
+    public $name = "Ales Nascimento";
+    private $id;
+    protected $lastName;
+
+    public function method1($prm = ''): String
     {
-        array_push($this->itens, $product);
+        return 'Method 1';
     }
 
-    public function all(): array
+    protected function method2(): void
     {
-        return $this->itens;
+
+    }
+
+    private function method3(): void
+    {
+
     }
 }
 
-class Product
-{
-    public $name;
-}
+$obj = new MyClass;
 
-$p1 = new product;
-$p1->name = 'DVD';
+//$methods = get_class_methods($obj);
+//$methods = get_class_methods('MyClass');
+//var_dump($methods);
+//$vars = get_class_vars('MyClass');
+//var_dump($vars);
 
-$p2 = new product;
-$p2->name = 'VAZO';
+//$vars=get_object_vars($obj);
+//var_dump($vars);
 
-$p3 = new product;
-$p3->name = 'ROUPA';
+//var_dump(get_class($obj));
 
-$cart = new Cart();
-$cart->add($p1);
-$cart->add($p2);
-$cart->add($p3);
-$itens = $cart->all();
-foreach ($itens as $product) {
-    echo "Nome: {$product->name} <br>";
-}
+
+//var_dump(get_parent_class($obj));
+
+//is_subclass_of($obj,'MyClassDad');
+
+//var_dump(method_exists($obj, 'method1'));
+
+
+//var_dump(property_exists($obj,'name'));
+
+//function teste()
+//{
+//    return 123;
+//}
+//
+//$functionN = 'teste';
+//$className = 'MyClass';
+//$params = [2, 3];
+//echo call_user_func($functionN, ...$params);
+
+//$className = 'MyClass';
+//var_dump(class_exists('$MyClassName'));
+
+//var_dump(is_a($obj, 'MyClass'));
+var_dump($obj instanceof MyClassDad );
